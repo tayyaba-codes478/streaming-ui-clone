@@ -333,7 +333,13 @@ function handleGridClick(event) {
 
 movieGrid.addEventListener("click", handleGridClick);
 watchlistGrid.addEventListener("click", handleGridClick);
+movieGrid.addEventListener("click", function (event) {
+  const button = event.target.closest(".details-btn");
 
+  if (button) {
+    openMovieDetails(Number(button.dataset.details));
+  }
+});
 movieGrid.addEventListener("keydown", event => {
   if (
     event.target.matches(".poster[data-action='details']") &&
