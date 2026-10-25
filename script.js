@@ -316,19 +316,18 @@ function closeMovieDetails() {
   currentMovieId = null;
 }
 
+
 function handleGridClick(event) {
-  const button = event.target.closest("[data-action]");
-  if (!button) return;
+  const detailsButton = event.target.closest("[data-details]");
+  const saveButton = event.target.closest("[data-save]");
 
-  const id = Number(button.dataset.id);
-  if (!Number.isInteger(id)) return;
-
-  if (button.dataset.action === "save") {
-    toggleWatchlist(id);
+  if (detailsButton) {
+    openMovieDetails(Number(detailsButton.dataset.details));
+    return;
   }
 
-  if (button.dataset.action === "details") {
-    openMovieDetails(id);
+  if (saveButton) {
+    toggleWatchlist(Number(saveButton.dataset.save));
   }
 }
 
