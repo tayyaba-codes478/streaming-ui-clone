@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streamora | Discover Movies</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#"><span class="brand-icon">S</span> streamora<span class="brand-dot">.</span></a>
+
+    <nav>
+      <a href="#home" class="nav-link active">Discover</a>
+      <a href="#movies" class="nav-link">Movies</a>
+      <a href="#watchlist" class="nav-link">My Watchlist <span id="watchlistCount" class="count">0</span></a>
+    </nav>
+
+    <label class="search-box">
+      <span>⌕</span>
+      <input id="searchInput" type="search" placeholder="Search movies..." aria-label="Search movies">
+      <kbd>⌕</kbd>
+    </label>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="live-dot"></span> YOUR NEXT FAVORITE STORY</div>
+        <p class="hero-kicker">THE CINEMA, REIMAGINED</p>
+        <h1>Stories worth<br>staying <span>in for.</span></h1>
+        <p class="hero-description">Explore unforgettable worlds, discover hidden gems, and build your own watchlist.</p>
+        <div class="hero-actions">
+          <a href="#movies" class="btn btn-primary">Explore movies <span>↗</span></a>
+          <button id="heroWatchlist" class="btn btn-glass">♡ My watchlist</button>
+        </div>
+        <div class="hero-meta"><span>✦ CURATED FOR YOU</span><span>•</span><span>ENDLESS DISCOVERY</span></div>
+      </div>
+      <div class="hero-side-note">YOUR PERSONAL CINEMA&nbsp; / &nbsp;001</div>
+    </section>
+
+    <section class="stats-strip">
+      <div><strong id="movieTotal">12</strong><span>Titles to discover</span></div>
+      <div><strong>∞</strong><span>Stories to explore</span></div>
+      <div><strong id="savedTotal">0</strong><span>Saved for later</span></div>
+      <div class="stats-message">GOOD STORIES<br><span>STAY WITH YOU.</span></div>
+    </section>
+
+    <section class="catalog section-wrap" id="movies">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">THE COLLECTION</p>
+          <h2>Find your <span>next watch.</span></h2>
+        </div>
+        <p class="section-note">A handpicked collection for every mood.</p>
+      </div>
+
+      <div class="filter-row" id="filterRow">
+        <button class="filter-chip selected" data-genre="All">All titles <span>12</span></button>
+        <button class="filter-chip" data-genre="Action">Action</button>
+        <button class="filter-chip" data-genre="Drama">Drama</button>
+        <button class="filter-chip" data-genre="Sci-Fi">Sci-Fi</button>
+        <button class="filter-chip" data-genre="Thriller">Thriller</button>
+        <button class="filter-chip" data-genre="Adventure">Adventure</button>
+        <button class="filter-chip" data-genre="Animation">Animation</button>
+      </div>
+
+      <div class="results-line">
+        <span id="resultsLabel">SHOWING ALL TITLES</span>
+        <button id="sortButton" class="sort-button">Sort: Featured ↕</button>
+      </div>
+
+      <div id="movieGrid" class="movie-grid"></div>
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-icon">⌕</div>
+        <h3>No stories found</h3>
+        <p>Try another title or choose a different category.</p>
+        <button id="resetButton" class="btn btn-primary">Reset filters</button>
+      </div>
+    </section>
+
+    <section class="watchlist-section section-wrap" id="watchlist">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">SAVED FOR LATER</p>
+          <h2>Your <span>watchlist.</span></h2>
+        </div>
+        <p class="section-note">All the stories you don't want to forget.</p>
+      </div>
+      <div id="watchlistGrid" class="movie-grid watchlist-grid"></div>
+      <p id="watchlistEmpty" class="watchlist-empty">Your watchlist is waiting for its first story. ♡</p>
+    </section>
+
+    <section class="bottom-banner">
+      <div class="banner-orb"></div>
+      <p class="section-kicker">THE NEXT CHAPTER STARTS HERE</p>
+      <h2>Less scrolling.<br><span>More discovering.</span></h2>
+      <a href="#movies" class="btn btn-primary">Find your next watch ↗</a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#"><span class="brand-icon">S</span> streamora<span class="brand-dot">.</span></a>
+    <p>Made for movie lovers, one story at a time.</p>
+    <span>© 2026 STREAMORA · DEMO PROJECT</span>
+  </footer>
+
+  <div id="movieModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-card">
+      <button id="closeModal" class="modal-close" aria-label="Close details">×</button>
+      <div id="modalArtwork" class="modal-artwork"></div>
+      <div class="modal-body">
+        <p class="section-kicker">MOVIE DETAILS</p>
+        <h2 id="modalTitle"></h2>
+        <div id="modalMeta" class="modal-meta"></div>
+        <p id="modalDescription" class="modal-description"></p>
+        <button id="modalSave" class="btn btn-primary">♡ Add to watchlist</button>
+        <button id="watchNowBtn" class="btn btn-primary">▶ Watch Now</button>
+        <p class="demo-note">Demo catalogue · This project does not stream movies.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
